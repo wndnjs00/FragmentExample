@@ -21,11 +21,23 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.apply {
+            // Activity -> Fragment로 데이터전달
             fragment1Btn.setOnClickListener{
-                setFragment(FirstFragment())
+                val dataToSend = "Activity -> Fragment\n로 데이터전달1"
+                val fragment = FirstFragment.newInstance(dataToSend)
+                setFragment(fragment)
             }
+
+
             fragment2Btn.setOnClickListener {
-                setFragment(SecondFragment())
+                // Activity -> Fragment로 데이터전달
+                val bundle = Bundle()
+                bundle.putString("data", "Activity -> Fragment\n로 데이터전달2")
+
+                val fragment = SecondFragment()
+                fragment.arguments = bundle
+
+                setFragment(fragment)
             }
         }
 
@@ -33,11 +45,13 @@ class MainActivity : AppCompatActivity() {
         setFragment(FirstFragment())
     }
 
-    private fun setFragment(frag : Fragment) {
+    private fun setFragment(fragment : Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frameLayout, frag)
+            .replace(R.id.frameLayout, fragment)
             .commit()
     }
+
+
 
 
 }
