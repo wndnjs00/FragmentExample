@@ -18,8 +18,11 @@ class FirstFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // MainActivity에서 보낸 데이터 받기
+        // MainActivity에서 보낸 데이터를 꺼내서 param1에 넣어줌
+        // arguments가 null이 아닐때만 실행
+        // arguments안에 bundle이라는 객체로 받아온데이터가 들어있는데
         arguments?.let {
+            // param1에 bundle을 사용해서 받아온 데이터를 넣어줌
             param1 = it.getString(ARG_PARAM1)
         }
 
@@ -40,13 +43,28 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // text와 받아온데이터인 param1을 연결
         binding.Fragment1.text = param1
+
+
+        // Fragment -> Fragment 데이터전달
+        binding.btnGofrag2.setOnClickListener {
+            val dataToSend = "FirstFragment -> SecondFragment\n로 데이터전달"
+            val fragment2 = SecondFragment.newInstance(dataToSend)
+
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, fragment2)
+                .commit()
+        }
+
     }
 
 
     companion object{
         fun newInstance(param1 : String) =
             FirstFragment().apply {
+                // param1에 MainActivity에서 전달한 데이터가 들어있음
+                // 얘를 arguments에 저장
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                 }
