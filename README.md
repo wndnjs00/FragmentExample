@@ -17,9 +17,9 @@
 
 #### Fragment에서 Fragment로 데이터 보내기
 -> newInstance함수를 만들고, newInstance함수에 전달할 값을 담아서 Fragment로 전달<br/>
--> newInstance함수에는 MainActivity에서 받아온데이터를 bundle을 사용해서 arguments에 저장 <br/>
+-> newInstance함수에는 FirstFragment에서 받아온데이터를 bundle을 사용해서 arguments에 저장 <br/>
 #### Fragment에서 데이터받기
--> arguments를 사용해서 MainActivity에서 보낸 데이터를 꺼내서 param1에 넣어줌 <br/>
+-> arguments를 사용해서 FirstFragment에서 보낸 데이터를 꺼내서 param1에 넣어줌 <br/>
 -> text에 받아온 param1데이터를 뿌려줌<br/>
 
 
@@ -40,6 +40,6 @@
 
 
 
-<br/><br/>
+<br/><br/><br/>
 해당 개념정리한 블로그 링크<br/>
 <https://coding-juuwon2.tistory.com/274>
