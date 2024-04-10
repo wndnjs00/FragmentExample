@@ -1,15 +1,13 @@
 package com.example.fragmentexample
 
 import android.os.Bundle
-import android.text.TextUtils.replace
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.fragmentexample.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+// FragmentDataListner 인터페이스 상속받음
+class MainActivity : AppCompatActivity(), FragmentDataListener {
 
     private lateinit var binding : ActivityMainBinding
 
@@ -49,6 +47,14 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, fragment)
             .commit()
+    }
+
+
+    // secondFragment -> MainActivtiy
+    // onDataReceived함수 오버라이딩해서 구현
+    override fun onDataReceived(data1 : String){
+        // Fragment에서 받은 데이터처리
+        Toast.makeText(this, data1 , Toast.LENGTH_SHORT).show()
     }
 
 
