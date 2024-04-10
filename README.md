@@ -26,7 +26,7 @@
 
 
 <br/><br/>
-#### 3.Fragment -> Activity 데이터 전달 
+### 3.Fragment -> Activity 데이터 전달 
 <img src="https://github.com/wndnjs00/FragmentExample/assets/89961868/866f8c11-7985-428c-a735-47a9cafc008b" width="200" height="400">
 
 #### Fragment에서 Activity로 데이터 보내기
