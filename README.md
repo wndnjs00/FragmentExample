@@ -42,5 +42,4 @@
 
 
 <br/><br/><br/>
-해당 개념정리한 블로그 링크<br/>
-<https://coding-juuwon2.tistory.com/274>
+[해당 개념정리한 블로그 링크](https://coding-juuwon2.tistory.com/274)
